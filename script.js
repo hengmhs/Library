@@ -56,7 +56,3 @@ function createCard(book, index){
 		checkbox.checked = true;
 	}
 }
-
-
-
-console.log(theHobbit.info())
