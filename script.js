@@ -71,5 +71,11 @@ function createBook(){
 	let read = document.getElementById("bookread").checked;
 	const newBook = new Book(title, author, pages, read);
 	addBookToLibrary(newBook);
-	createCard(newBook, myLibrary.indexOf(newBook));
+	clearLib();
+	myLibrary.forEach(book => createCard(book, myLibrary.indexOf(book)));
+}
+
+function clearLib(){
+	const library = document.getElementById("library");
+	library.innerHTML = "";
 }
