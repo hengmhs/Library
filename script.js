@@ -48,6 +48,7 @@ function createCard(book, index){
 	read.innerHTML = "Read ";
 	const checkbox = document.createElement("input");
 	checkbox.setAttribute("type","checkbox");
+	checkbox.setAttribute('data-index', index);
 	library.appendChild(card);
 	card.appendChild(container);
 	card.appendChild(deleteButton);
@@ -62,6 +63,14 @@ function createCard(book, index){
 	}
 	deleteButton.addEventListener("click", function(){
 		delBook(this.dataset.index); // deletes the respective library object in array
+	});
+	checkbox.addEventListener("click", function(){
+		const book = myLibrary[this.dataset.index];
+		if(book.read === true){
+			book.read = false;
+		} else {
+			book.read = true;
+		}
 	});
 }
 
