@@ -56,7 +56,7 @@ h2 {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  display: block;
+  display: none;
 }
 
 #pop-up {
@@ -82,24 +82,29 @@ h2 {
   width: 100%;
 }
 
+#close {
+  float: right;
+}
+
 </style>
 </head>
 <body>
 
 <div id="overlay">
   <div id="pop-up">
-      <button onclick=alert('hi!')><strong>X</strong></button>
+      <button id=close onclick=popup()><strong>X</strong></button>
       <h2>Add a Book</h2>
       <p><span> Title: </span><input type="text" id="booktitle"></p>
       <p><span> Author: </span><input type="text" id="bookauth"></p>
       <p><span> Pages: </span><input type="number" id="bookpagenum"></p>
+      <p><span> Read: </span><input type="checkbox" id="bookread"></p>
+      <button onclick=createBook()>Add Book</button>
   </div>
 </div>
   
-
 <div class = center>
 <h2 id="mylib">My Library</h2>
-
+<button onclick=popup()>Add New Book</button>
 <div id="library">
 </div>
 </div>

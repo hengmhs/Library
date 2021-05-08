@@ -9,21 +9,20 @@ function Book(title, author, pages, read){
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
-	this.info = function() {
-		return title + " by " + author + "," + " " + pages + " pages," + " " + read;
-	}
 }
 
 function addBookToLibrary(book) {
   return myLibrary.push(book);
 }
 
-theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-Principles = new Book("Principles","Ray Dalio", 188, "read");
+theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+Principles = new Book("Principles","Ray Dalio", 188, true);
+theMidnightHour = new Book("The Midnight Hour","Benjamin Read", 288, false);
 
 function init(){
 	addBookToLibrary(theHobbit);
 	addBookToLibrary(Principles);
+	addBookToLibrary(theMidnightHour);
 	myLibrary.forEach(book => createCard(book, myLibrary.indexOf(book)));
 }
 
@@ -51,8 +50,26 @@ function createCard(book, index){
 	container.appendChild(para);
 	container.appendChild(read);
 	read.appendChild(checkbox);
-	console.log(checkbox);
-	if(book.read === 'read'){
+	if(book.read === true){
 		checkbox.checked = true;
 	}
+}
+
+function popup(){
+	const overlay = document.getElementById("overlay");
+	if (overlay.style.display === "block"){
+		overlay.style.display = "none";
+	} else {
+		overlay.style.display = "block";
+	};
+}
+
+function createBook(){
+	const title = document.getElementById("booktitle").value;
+	const author = document.getElementById("bookauth").value;
+	const pages = document.getElementById("bookpagenum").value;
+	let read = document.getElementById("bookread").checked;
+	const newBook = new Book(title, author, pages, read);
+	addBookToLibrary(newBook);
+	createCard(newBook, myLibrary.indexOf(newBook));
 }
