@@ -6,3 +6,4 @@ Learning Points:
 
 1. Overlay popup with dark background
 2. Adding and removing elements from the DOM
+3. Linking DOM elements to the Library array via data attributes

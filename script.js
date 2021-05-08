@@ -31,9 +31,14 @@ function createCard(book, index){
 	const library = document.getElementById("library");
 	const card = document.createElement("div");
 	card.classList.add("card");
-	card.setAttribute('data-index', index);
 	const container = document.createElement("div");
 	container.classList.add("container")
+	const deleteButton = document.createElement("div");
+	deleteButton.classList.add("deleteButton");
+	deleteButton.setAttribute('data-index', index); // assigns index to the button corresponding to the library object
+	const trashcan = document.createElement('p');
+	trashcan.innerHTML = 'x';
+	trashcan.classList.add('trashcan');
 	const h4 = document.createElement("H4");
 	const title = document.createTextNode(book.title);
 	const para = document.createElement("p");
@@ -45,6 +50,8 @@ function createCard(book, index){
 	checkbox.setAttribute("type","checkbox");
 	library.appendChild(card);
 	card.appendChild(container);
+	card.appendChild(deleteButton);
+	deleteButton.appendChild(trashcan);
 	container.appendChild(h4);
 	h4.appendChild(title);
 	container.appendChild(para);
@@ -53,6 +60,9 @@ function createCard(book, index){
 	if(book.read === true){
 		checkbox.checked = true;
 	}
+	deleteButton.addEventListener("click", function(){
+		delBook(this.dataset.index); // deletes the respective library object in array
+	});
 }
 
 function popup(){
@@ -75,7 +85,15 @@ function createBook(){
 	myLibrary.forEach(book => createCard(book, myLibrary.indexOf(book)));
 }
 
+// clears the library div in DOM
 function clearLib(){
 	const library = document.getElementById("library");
 	library.innerHTML = "";
+}
+
+function delBook(index){
+	// removes the book from the library
+	myLibrary.splice(index, 1);
+	clearLib();
+	myLibrary.forEach(book => createCard(book, myLibrary.indexOf(book)));
 }

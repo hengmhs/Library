@@ -3,6 +3,7 @@
 <head>
 <title>JavaScript Test Site</title>
 <script src="script.js"></script>
+<meta charset="UTF-8">
 </head>
 <body>
 
@@ -14,6 +15,7 @@
   border-radius: 5px;
   background: white;
   margin: 1em;
+  display: flex;
 }
 
 .card:hover {
@@ -26,6 +28,19 @@ img {
 
 .container {
   padding: 2px 16px;
+  width: 90%;
+}
+
+.deleteButton {
+  background-color: rgb(247, 215, 215);
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trashcan {
+  color: rgb(163, 6, 6);
 }
 
 body {
@@ -96,7 +111,7 @@ h2 {
 
 <div id="overlay">
   <div id="pop-up">
-      <button id=close onclick=popup()><strong>X</strong></button>
+      <button id=close onclick=popup()>x</button>
       <h2>Add a Book</h2>
       <p><span> Title: </span><input type="text" id="booktitle"></p>
       <p><span> Author: </span><input type="text" id="bookauth"></p>
