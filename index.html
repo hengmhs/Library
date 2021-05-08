@@ -16,10 +16,11 @@
   background: white;
   margin: 1em;
   display: flex;
+  justify-content: space-between;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 img {
@@ -28,15 +29,24 @@ img {
 
 .container {
   padding: 2px 16px;
-  width: 90%;
+  width: auto;
 }
 
 .deleteButton {
   background-color: rgb(247, 215, 215);
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton:hover {
+  background-color: rgb(247, 113, 113);
   width: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.3s;
 }
 
 .trashcan {
