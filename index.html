@@ -40,18 +40,65 @@ body {
   margin-left: 25%;
 }
 
-h2 {
+#mylib {
   color: white;
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
 
+#overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+#pop-up {
+  background-color: white;
+  display: block;
+  width: 20%;
+  z-index: 1001;
+  margin-top: 10%;
+  margin-left:40%; 
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  padding: 1em;
+}
+
+#booktitle {
+  width: 100%;
+}
+
+#bookpagenum {
+  width: 100%;
+}
+
+#bookauth {
+  width: 100%;
+}
 
 </style>
 </head>
 <body>
+
+<div id="overlay">
+  <div id="pop-up">
+      <button onclick=alert('hi!')><strong>X</strong></button>
+      <h2>Add a Book</h2>
+      <p><span> Title: </span><input type="text" id="booktitle"></p>
+      <p><span> Author: </span><input type="text" id="bookauth"></p>
+      <p><span> Pages: </span><input type="number" id="bookpagenum"></p>
+  </div>
+</div>
+  
+
 <div class = center>
-<h2>My Library</h2>
+<h2 id="mylib">My Library</h2>
 
 <div id="library">
 </div>
