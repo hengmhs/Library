@@ -8,3 +8,4 @@ The Odin Project assignment to create a Library app.
 2. Adding and removing elements from the DOM
 3. Linking DOM elements to the Library array via data attributes
 4. CSS Transitions
+5. Classes
